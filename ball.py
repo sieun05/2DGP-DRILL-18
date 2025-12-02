@@ -8,7 +8,9 @@ class Ball:
         self.y = y
 
     def draw(self):
-        pass
+        sx = self.x - common.court.window_left
+        sy = self.y - common.court.window_bottom
+        self.image.draw(sx, sy)
 
     def handle_collision(self, group, other):
         pass
