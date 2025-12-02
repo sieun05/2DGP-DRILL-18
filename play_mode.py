@@ -9,6 +9,7 @@ import common
 
 from boy import Boy
 from court import Court
+from ball import Ball
 
 
 def handle_events():
@@ -29,6 +30,14 @@ def init():
 
     common.boy = Boy()
     game_world.add_object(common.boy, 1)
+
+    common.balls = [ Ball(
+        random.randint(0, common.court.cw), random.randint(0, common.court.ch)) for _ in range(100) ]
+    game_world.add_objects(common.balls, 1)
+
+    game_world.add_collision_pair('boy:ball', common.boy, None)
+    for ball in common.balls:
+        game_world.add_collision_pair('boy:ball', None, ball)
 
 
 def finish():
