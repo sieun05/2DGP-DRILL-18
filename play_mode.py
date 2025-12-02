@@ -32,7 +32,7 @@ def init():
     game_world.add_object(common.boy, 1)
 
     common.balls = [ Ball(
-        random.randint(0, common.court.cw), random.randint(0, common.court.ch)) for _ in range(100) ]
+        random.randint(0, common.court.w), random.randint(0, common.court.h)) for _ in range(100) ]
     game_world.add_objects(common.balls, 1)
 
     game_world.add_collision_pair('boy:ball', common.boy, None)
