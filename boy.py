@@ -51,10 +51,10 @@ class Idle:
         # Removed timeout trigger for sleep.
 
     def draw(self):
-        # sx = common.court.cw//2
-        # sy = common.court.ch//2
-        sx = self.boy.x - common.court.window_left
-        sy = self.boy.y - common.court.window_bottom
+        sx = common.court.cw//2
+        sy = common.court.ch//2
+        # sx = self.boy.x - common.court.window_left
+        # sy = self.boy.y - common.court.window_bottom
 
         if self.boy.face_dir == 1:  # right
             self.boy.image.clip_draw(int(self.boy.frame) * 100, 300, 100, 100, sx, sy)
@@ -80,10 +80,10 @@ class Run:
 
 
     def draw(self):
-        # sx = common.court.cw // 2
-        # sy = common.court.ch // 2
-        sx = self.boy.x - common.court.window_left
-        sy = self.boy.y - common.court.window_bottom
+        sx = common.court.cw // 2
+        sy = common.court.ch // 2
+        # sx = self.boy.x - common.court.window_left
+        # sy = self.boy.y - common.court.window_bottom
 
         if self.boy.xdir == 0: # 위 아래로 움직이는 경우
             if self.boy.face_dir == 1: # right
@@ -121,8 +121,8 @@ class Boy:
 
     def update(self):
         self.state_machine.update()
-        self.x = clamp(50, self.x, common.court.w - 50)
-        self.y = clamp(50, self.y, common.court.h - 50)
+        # self.x = clamp(50, self.x, common.court.w - 50)
+        # self.y = clamp(50, self.y, common.court.h - 50)
 
 
     def handle_event(self, event):
