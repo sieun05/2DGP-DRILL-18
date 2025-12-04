@@ -33,6 +33,10 @@ class TileCourt:
         self.ch = get_canvas_height()
 
         # fill here
+        self.w = 800 * 6
+        self.h = 600 * 6
+
+        self.tiles = [ [load_image(('cube%d%d.png' % (x, y))) for x in range(3)] for y in range(3) ]
 
 
     def update(self):
@@ -43,6 +47,22 @@ class TileCourt:
         self.window_bottom = clamp(0, int(common.boy.y) - self.ch // 2, self.h - self.ch - 1)
 
         # fill here
+        tile_left = self.window_left // 800
+        tile_right = (self.window_left + self.cw) // 800
+        left_offset = self.window_left % 800
+
+        tile_bottom = self.window_bottom // 600
+        tile_top = (self.window_bottom + self.ch) // 600
+        bottom_offset = self.window_bottom % 600
+
+        for ty in range(tile_bottom, tile_top + 1):
+            for tx in range(tile_left, tile_right + 1):
+                self.tiles[ty % 3][tx % 3].draw_to_origin(
+                    -left_offset + (tx - tile_left) * 800,
+                    -bottom_offset + (ty - tile_bottom) * 600
+                )
+
+
 
 
 class InfiniteCourt:

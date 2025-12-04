@@ -10,7 +10,7 @@ import common
 from boy import Boy
 from court import Court
 from ball import Ball
-from court import InfiniteCourt as Court
+from court import TileCourt as Court
 
 
 def handle_events():
